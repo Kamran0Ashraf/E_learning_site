@@ -1,0 +1,35 @@
+<!--
+	*index.html
+	*author: Manivannan R
+	*project: Speedometer
+-->
+<html>
+<head>
+<link href="css/speedometer.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery.js"></script>
+<script src="js/speedometer.js"></script>
+</head>
+<body>
+	<div class='dash up'></div>
+	<div class='f_rap'>
+		<div class='time'></div>
+		<div class='flexB'>
+			<input id="myValuesSpeed" />
+			<div class='img_div'>
+				<img src="path.png" alt="map">
+			</div>
+			<input id="myValuesRPM" />
+		</div>
+	</div>
+	<div class='dash down'></div>
+</body>
+<script type="text/javascript">
+	setInterval(()=>{
+		let dt = new Date();
+		let time = (dt.getHours()%12) + ' : ' + dt.getMinutes() +" : "+dt.getSeconds();
+		$('.time').text(time);
+	},1);
+	$("#myValuesSpeed").myfunc({divFact:10,eventListenerType:'keyup'}, 'km/h');
+	$("#myValuesRPM").myfunc({divFact:10,eventListenerType:'keyup'}, 'rpm');
+</script>
+</html>
